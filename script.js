@@ -173,23 +173,25 @@ if(envelope && openLetter){
 }
 function createPetal(){
 
-const petal=document.createElement("div");
+const petal=document.createElement("img");
+
+petal.src="assets/images/petal.png";
 
 petal.className="petal";
 
-petal.innerHTML="🌹";
-
 petal.style.left=Math.random()*100+"vw";
 
-petal.style.animationDuration=(5+Math.random()*5)+"s";
+petal.style.width=(18+Math.random()*20)+"px";
+
+petal.style.animationDuration=(6+Math.random()*5)+"s";
+
+petal.style.animationDelay=Math.random()*2+"s";
 
 document.body.appendChild(petal);
 
 setTimeout(()=>{
-
-petal.remove();
-
-},10000);
+    petal.remove();
+},12000);
 
 }
 
