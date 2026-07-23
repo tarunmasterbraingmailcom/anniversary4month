@@ -263,12 +263,12 @@ y: Math.random() * 0.5
 });
 
 }
-// ===== FIREWORKS ENGINE =====
+// ===== PREMIUM FIREWORKS ENGINE =====
 
 const canvas = document.getElementById("fireworks");
 const ctx = canvas.getContext("2d");
 
-function resizeFireworks() {
+function resizeFireworks(){
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
@@ -277,23 +277,47 @@ resizeFireworks();
 window.addEventListener("resize", resizeFireworks);
 
 let particles = [];
+let rockets = [];
 
-function createExplosion(x, y) {
+function randomColor(){
+    return `hsl(${Math.random()*360},100%,60%)`;
+}
 
-    for (let i = 0; i < 120; i++) {
+function launchRocket(){
+
+    rockets.push({
+
+        x: Math.random()*canvas.width,
+
+        y: canvas.height,
+
+        targetY: Math.random()*canvas.height*0.45+80,
+
+        color: randomColor()
+
+    });
+
+}
+
+function explode(x,y,color){
+
+    for(let i=0;i<120;i++){
+
+        const angle=Math.random()*Math.PI*2;
+
+        const speed=Math.random()*6+2;
 
         particles.push({
 
-            x: x,
-            y: y,
+            x:x,
+            y:y,
 
-            dx: (Math.random() - 0.5) * 12,
-            dy: (Math.random() - 0.5) * 12,
+            dx:Math.cos(angle)*speed,
+            dy:Math.sin(angle)*speed,
 
-            life: 100,
+            life:100,
 
-            color:
-                `hsl(${Math.random()*360},100%,60%)`
+            color:color
 
         });
 
@@ -301,24 +325,41 @@ function createExplosion(x, y) {
 
 }
 
-function animateFireworks() {
+function animateFireworks(){
 
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
+    rockets.forEach((r,index)=>{
+
+        r.y-=8;
+
+        ctx.beginPath();
+        ctx.arc(r.x,r.y,3,0,Math.PI*2);
+        ctx.fillStyle=r.color;
+        ctx.fill();
+
+        if(r.y<=r.targetY){
+
+            explode(r.x,r.y,r.color);
+
+            rockets.splice(index,1);
+
+        }
+
+    });
+
     particles.forEach((p,index)=>{
 
-        p.x += p.dx;
-        p.y += p.dy;
+        p.x+=p.dx;
+        p.y+=p.dy;
 
-        p.dy += 0.05;
+        p.dy+=0.05;
 
         p.life--;
 
         ctx.beginPath();
-        ctx.arc(p.x,p.y,3,0,Math.PI*2);
-
+        ctx.arc(p.x,p.y,2.5,0,Math.PI*2);
         ctx.fillStyle=p.color;
-
         ctx.fill();
 
         if(p.life<=0){
