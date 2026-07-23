@@ -558,4 +558,25 @@ grid-template-columns:1fr;
 #openLetter{
     margin-top:30px;
 }
+.petal{
+position:fixed;
+top:-50px;
+font-size:24px;
+pointer-events:none;
+animation:fallPetal linear forwards;
+z-index:999;
+}
 
+@keyframes fallPetal{
+
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+
+}
