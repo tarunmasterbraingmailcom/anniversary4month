@@ -169,3 +169,26 @@ if(envelope && openLetter){
         envelope.classList.toggle("open");
     });
 }
+function createPetal(){
+
+const petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌹";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>{
+
+petal.remove();
+
+},10000);
+
+}
+
+setInterval(createPetal,700);
