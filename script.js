@@ -192,3 +192,30 @@ petal.remove();
 }
 
 setInterval(createPetal,700);
+const letter=document.getElementById("typewriter");
+
+if(letter){
+
+const text=letter.innerHTML;
+
+letter.innerHTML="";
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+letter.innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,35);
+
+}
+
+}
+
+setTimeout(type,600);
+
+}
