@@ -360,3 +360,26 @@ if (celebrateBtn) {
     });
 
 }
+function createBackgroundHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="bgHeart";
+
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(12+Math.random()*28)+"px";
+
+heart.style.animationDuration=(8+Math.random()*8)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+    heart.remove();
+},16000);
+
+}
+
+setInterval(createBackgroundHeart,900);
