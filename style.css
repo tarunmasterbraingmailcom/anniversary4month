@@ -383,7 +383,140 @@ margin:auto;
 line-height:1.9;
 
    }
+/* ===========================
+   PROJECT ANU - STYLE PART 3
+=========================== */
 
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    background:rgba(255,255,255,.05);
+    margin-top:80px;
+}
+
+footer p{
+    color:#ddd;
+    letter-spacing:1px;
+}
+
+/* Floating Hearts */
+
+.heart{
+    position:fixed;
+    bottom:-50px;
+    color:#ff5c9a;
+    font-size:22px;
+    pointer-events:none;
+    animation:floatHeart linear forwards;
+}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* Fade Animation */
+
+.fade{
+    animation:fadeUp .9s ease;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* Scroll Bar */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#111;
+}
+
+::-webkit-scrollbar-thumb{
+background:#ff6fa8;
+border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#ff4d94;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero{
+padding:25px;
+}
+
+.glass{
+padding:30px 20px;
+}
+
+.glass h1{
+font-size:48px;
+}
+
+.glass h2{
+font-size:18px;
+}
+
+.glass p{
+font-size:15px;
+}
+
+.section-title{
+font-size:38px;
+}
+
+.card{
+padding:22px;
+}
+
+.celebration h1{
+font-size:48px;
+}
+
+#timer{
+font-size:26px;
+}
+
+button{
+width:100%;
+max-width:280px;
+}
+
+.photos{
+grid-template-columns:1fr;
+}
+
+}
 
 
 
