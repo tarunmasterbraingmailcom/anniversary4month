@@ -6,15 +6,17 @@
 window.addEventListener("load", () => {
     const loader = document.querySelector(".loader");
 
-    setTimeout(() => {
-        loader.style.opacity = "0";
-        loader.style.transition = "1s";
-
+    if(loader){
         setTimeout(() => {
-            loader.style.display = "none";
-        }, 1000);
+            loader.style.opacity = "0";
+            loader.style.transition = "1s";
 
-    }, 1500);
+            setTimeout(() => {
+                loader.style.display = "none";
+            },1000);
+
+        },1500);
+    }
 });
 
 // Enter Button
