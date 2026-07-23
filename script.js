@@ -259,3 +259,74 @@ y: Math.random() * 0.5
 });
 
 }
+// ===== FIREWORKS ENGINE =====
+
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+
+function resizeFireworks() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+resizeFireworks();
+window.addEventListener("resize", resizeFireworks);
+
+let particles = [];
+
+function createExplosion(x, y) {
+
+    for (let i = 0; i < 120; i++) {
+
+        particles.push({
+
+            x: x,
+            y: y,
+
+            dx: (Math.random() - 0.5) * 12,
+            dy: (Math.random() - 0.5) * 12,
+
+            life: 100,
+
+            color:
+                `hsl(${Math.random()*360},100%,60%)`
+
+        });
+
+    }
+
+}
+
+function animateFireworks() {
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach((p,index)=>{
+
+        p.x += p.dx;
+        p.y += p.dy;
+
+        p.dy += 0.05;
+
+        p.life--;
+
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,3,0,Math.PI*2);
+
+        ctx.fillStyle=p.color;
+
+        ctx.fill();
+
+        if(p.life<=0){
+
+            particles.splice(index,1);
+
+        }
+
+    });
+
+    requestAnimationFrame(animateFireworks);
+
+}
+
+animateFireworks();
