@@ -383,3 +383,30 @@ setTimeout(()=>{
 }
 
 setInterval(createBackgroundHeart,900);
+const loveText = document.querySelector(".loveGlow");
+
+if(loveText){
+
+setInterval(()=>{
+
+const rect = loveText.getBoundingClientRect();
+
+const p = document.createElement("div");
+
+p.className = "glowParticle";
+
+p.style.left =
+(rect.left + Math.random()*rect.width) + "px";
+
+p.style.top =
+(rect.top + Math.random()*rect.height) + "px";
+
+document.body.appendChild(p);
+
+setTimeout(()=>{
+    p.remove();
+},2500);
+
+},180);
+
+}
