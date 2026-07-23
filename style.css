@@ -178,3 +178,212 @@ transform:translateY(-4px) scale(1.05);
 box-shadow:0 15px 35px rgba(255,77,148,.45);
 
 }
+/* ===========================
+   PROJECT ANU - STYLE PART 2
+=========================== */
+
+section{
+padding:90px 10%;
+}
+
+.section-title{
+
+text-align:center;
+
+font-size:50px;
+
+font-family:'Great Vibes',cursive;
+
+color:#ff7db3;
+
+margin-bottom:40px;
+
+}
+
+/* Countdown */
+
+.countdown{
+
+text-align:center;
+
+}
+
+#timer{
+
+font-size:40px;
+
+font-weight:bold;
+
+color:#ffd6e8;
+
+margin-top:20px;
+
+}
+
+/* Story Cards */
+
+.story{
+
+text-align:center;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.15);
+
+backdrop-filter:blur(18px);
+
+border-radius:20px;
+
+padding:30px;
+
+margin:30px auto;
+
+max-width:700px;
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 45px rgba(255,255,255,.12);
+
+}
+
+.card h3{
+
+color:#ff86b8;
+
+margin-bottom:15px;
+
+}
+
+/* Gallery */
+
+.photos{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:20px;
+
+}
+
+.photos img{
+
+width:100%;
+
+border-radius:18px;
+
+transition:.4s;
+
+cursor:pointer;
+
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+}
+
+.photos img:hover{
+
+transform:scale(1.05);
+
+}
+
+/* Love Letter */
+
+.letter{
+
+max-width:750px;
+
+margin:auto;
+
+background:white;
+
+color:#333;
+
+border-radius:18px;
+
+padding:35px;
+
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+}
+
+.letter-top{
+
+text-align:center;
+
+font-size:60px;
+
+margin-bottom:20px;
+
+}
+
+.letter-body{
+
+line-height:2;
+
+font-size:17px;
+
+white-space:pre-line;
+
+}
+
+/* Music */
+
+.music-section{
+
+text-align:center;
+
+}
+
+.music-section audio{
+
+margin-top:20px;
+
+width:320px;
+
+max-width:100%;
+
+}
+
+/* Celebration */
+
+.celebration{
+
+text-align:center;
+
+}
+
+.celebration h1{
+
+font-family:'Great Vibes',cursive;
+
+font-size:70px;
+
+color:#ff7db3;
+
+margin:20px 0;
+
+}
+
+.celebration p{
+
+max-width:700px;
+
+margin:auto;
+
+line-height:1.9;
+
+   }
+
+
+
+
