@@ -450,3 +450,70 @@ setTimeout(()=>{
 },180);
 
 }
+/* ===== PIN LOCK ===== */
+
+const correctPin = "2503"; // Change this to your own PIN
+
+let enteredPin = "";
+
+const dots = document.querySelectorAll(".dot");
+const screen = document.getElementById("passwordScreen");
+const message = document.getElementById("pinMessage");
+
+function updateDots(){
+    dots.forEach((dot,index)=>{
+        dot.classList.toggle("active",index<enteredPin.length);
+    });
+}
+
+function pressPin(num){
+
+    if(enteredPin.length>=4) return;
+
+    enteredPin+=num;
+
+    updateDots();
+
+}
+
+function clearPin(){
+
+    enteredPin=enteredPin.slice(0,-1);
+
+    updateDots();
+
+}
+
+function checkPin(){
+
+    if(enteredPin===correctPin){
+
+        screen.style.transition="0.8s";
+
+        screen.style.opacity="0";
+
+        setTimeout(()=>{
+
+            screen.style.display="none";
+
+        },800);
+
+    }
+
+    else{
+
+        message.textContent="❌ Wrong PIN";
+
+        enteredPin="";
+
+        updateDots();
+
+        setTimeout(()=>{
+
+            message.textContent="";
+
+        },1500);
+
+    }
+
+}
