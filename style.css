@@ -1,183 +1,130 @@
+/* ===========================
+   PROJECT ANU - STYLE PART 1
+=========================== */
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:#090909;
-    color:#fff;
-    overflow-x:hidden;
+
+font-family:'Poppins',sans-serif;
+background:#050816;
+color:white;
+overflow-x:hidden;
+
 }
 
-section{
-    padding:80px 10%;
+/* Animated Background */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+radial-gradient(circle at 20% 20%,rgba(255,0,120,.18),transparent 35%),
+radial-gradient(circle at 80% 30%,rgba(0,150,255,.15),transparent 35%),
+radial-gradient(circle at 50% 80%,rgba(255,255,255,.06),transparent 40%);
+
+z-index:-2;
+
 }
 
-#loader{
-    position:fixed;
-    inset:0;
-    background:#000;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
+/* Stars */
+
+#stars{
+
+position:fixed;
+
+width:100%;
+height:100%;
+
+top:0;
+left:0;
+
+pointer-events:none;
+
+z-index:-1;
+
+background-image:
+
+radial-gradient(white 1px, transparent 1px);
+
+background-size:45px 45px;
+
+opacity:.35;
+
+animation:starsMove 90s linear infinite;
+
 }
 
-#loader h1{
-    font-family:'Great Vibes',cursive;
-    font-size:70px;
-    color:#ff4f91;
-    animation:pulse 2s infinite;
+@keyframes starsMove{
+
+from{
+transform:translateY(0);
 }
+
+to{
+transform:translateY(-300px);
+}
+
+}
+
+/* Hero */
 
 .hero{
-    height:100vh;
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(135deg,#ff4f91,#5b247a);
-}
 
-.overlay{
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.45);
-}
+height:100vh;
 
-.hero-content{
-    position:relative;
-    z-index:5;
-    max-width:800px;
-}
+display:flex;
 
-.hero h1{
-    font-size:70px;
-    font-family:'Great Vibes',cursive;
-    margin:15px 0;
-}
+justify-content:center;
 
-.hero h2{
-    letter-spacing:5px;
-}
+align-items:center;
 
-.hero p{
-    margin:25px auto;
-    line-height:1.8;
-}
+text-align:center;
 
-button{
-    padding:16px 45px;
-    border:none;
-    border-radius:50px;
-    cursor:pointer;
-    background:white;
-    color:#ff4f91;
-    font-size:18px;
-    transition:.3s;
-}
-
-button:hover{
-    transform:scale(1.08);
-}
-
-.message,
-.timeline,
-.gallery,
-.countdown,
-.ending{
-    text-align:center;
-}
-
-.message h2,
-.gallery h2,
-.timeline h2,
-.countdown h2,
-.ending h1{
-    margin-bottom:30px;
-    font-size:40px;
-    font-family:'Great Vibes',cursive;
-    color:#ff77aa;
-}
-
-.message p{
-    max-width:800px;
-    margin:auto;
-    line-height:2;
-}
-
-.grid{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:25px;
-}
-
-.grid img{
-    width:100%;
-    border-radius:18px;
-    transition:.4s;
-    box-shadow:0 15px 40px rgba(0,0,0,.4);
-}
-
-.grid img:hover{
-    transform:translateY(-10px) scale(1.03);
-}
-
-.card{
-    margin:25px auto;
-    max-width:700px;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.15);
-    backdrop-filter:blur(15px);
-    padding:35px;
-    border-radius:20px;
-}
-
-.card h3{
-    margin-bottom:10px;
-}
-
-#timer{
-    font-size:42px;
-    font-weight:bold;
-    color:#ff77aa;
-}
-
-.ending{
-    background:linear-gradient(135deg,#5b247a,#ff4f91);
-}
-
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.08);}
-    100%{transform:scale(1);}
-}
-
-@media(max-width:768px){
-
-.hero h1{
-    font-size:48px;
-}
-
-.hero p{
-    font-size:15px;
-}
-
-.message h2,
-.gallery h2,
-.timeline h2,
-.countdown h2,
-.ending h1{
-    font-size:32px;
-}
-
-button{
-    padding:14px 35px;
-}
+padding:20px;
 
 }
+
+/* Glass Card */
+
+.glass{
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.15);
+
+padding:45px;
+
+border-radius:25px;
+
+max-width:700px;
+
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+}
+
+.glass h1{
+
+font-size:70px;
+
+font-family:'Great Vibes',cursive;
+
+color:#ff77aa;
+
+margin:15px
