@@ -234,5 +234,40 @@ Made with ❤️ by Tarun BF Of My Boss!!
 <script src="script.js"></script>
 
 </body>
+<div id="passwordScreen">
+  <div class="passwordBox">
 
+    <h1>💖 Private Anniversary 💖</h1>
+    <p>Enter your secret PIN</p>
+
+    <div id="pinDots">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+    <div class="numberPad">
+      <button onclick="pressPin('1')">1</button>
+      <button onclick="pressPin('2')">2</button>
+      <button onclick="pressPin('3')">3</button>
+
+      <button onclick="pressPin('4')">4</button>
+      <button onclick="pressPin('5')">5</button>
+      <button onclick="pressPin('6')">6</button>
+
+      <button onclick="pressPin('7')">7</button>
+      <button onclick="pressPin('8')">8</button>
+      <button onclick="pressPin('9')">9</button>
+
+      <button onclick="clearPin()">⌫</button>
+      <button onclick="pressPin('0')">0</button>
+      <button onclick="checkPin()">❤️</button>
+    </div>
+
+    <p id="pinMessage"></p>
+
+  </div>
+</div>
+    
 </html>
