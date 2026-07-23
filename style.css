@@ -736,3 +736,30 @@ grid-template-columns:1fr;
 }
 
 }
+.glowParticle{
+    position:fixed;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#ffd700;
+    pointer-events:none;
+    z-index:999;
+    box-shadow:
+        0 0 10px #ffd700,
+        0 0 20px #fff5b5;
+    animation:particleFade 2.5s linear forwards;
+}
+
+@keyframes particleFade{
+
+0%{
+    transform:scale(.2);
+    opacity:1;
+}
+
+100%{
+    transform:translateY(-80px) scale(1.8);
+    opacity:0;
+}
+
+}
