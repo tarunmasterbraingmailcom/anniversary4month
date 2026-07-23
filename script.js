@@ -1,144 +1,70 @@
-const loader = document.getElementById("loader");
-const enterBtn = document.getElementById("enterBtn");
-const music = document.getElementById("bgMusic");
-const timer = document.getElementById("timer");
+/* ===========================
+   PROJECT ANU - SCRIPT PART 1
+=========================== */
 
 // Hide loader
 window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader");
+
     setTimeout(() => {
         loader.style.opacity = "0";
         loader.style.transition = "1s";
+
         setTimeout(() => {
             loader.style.display = "none";
         }, 1000);
+
     }, 1500);
 });
 
-// Start music after clicking Enter
+// Enter Button
+
+const enterBtn = document.getElementById("enter");
+
 enterBtn.addEventListener("click", () => {
-    music.play().catch(() => {});
-    document.querySelector(".message").scrollIntoView({
-        behavior: "smooth"
+
+    document.querySelector(".story").scrollIntoView({
+
+        behavior:"smooth"
+
     });
+
 });
 
-// Anniversary date (25 March 2026)
-const startDate = new Date("2026-03-25T00:00:00");
+// Anniversary Countdown
 
-function updateTimer() {
-    const now = new Date();
-    const diff = now - startDate;
+const targetDate = new Date("March 25, 2026 00:00:00").getTime();
 
-    if (diff < 0) {
-        timer.innerHTML = "Anniversary is coming soon ❤️";
-        return;
-    }
+const timer = document.getElementById("timer");
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+function updateCountdown(){
 
-    timer.innerHTML =
-        `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
-}
+const now = new Date().getTime();
 
-setInterval(updateTimer, 1000);
-updateTimer();
+const distance = targetDate - now;
 
-// Fade-in animation
-const sections = document.querySelectorAll("section");
+if(distance < 0){
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.animate(
-                [
-                    { opacity: 0, transform: "translateY(50px)" },
-                    { opacity: 1, transform: "translateY(0px)" }
-                ],
-                {
-                    duration: 1000,
-                    fill: "forwards"
-                }
-            );
-        }
-    });
-});
+timer.innerHTML = "❤️ Happy Anniversary ❤️";
 
-sections.forEach((section) => {
-    section.style.opacity = "0";
-    observer.observe(section);
-});
-
-// Floating hearts
-function createHeart() {
-    const heart = document.createElement("div");
-
-    heart.innerHTML = "❤️";
-
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.bottom = "-40px";
-    heart.style.fontSize = (20 + Math.random() * 25) + "px";
-    heart.style.opacity = Math.random();
-    heart.style.pointerEvents = "none";
-    heart.style.zIndex = "999";
-
-    document.body.appendChild(heart);
-
-    let pos = -40;
-
-    const move = setInterval(() => {
-
-        pos += 3;
-
-        heart.style.bottom = pos + "px";
-
-        heart.style.transform =
-            `translateX(${Math.sin(pos / 40) * 20}px)`;
-
-        if (pos > window.innerHeight + 100) {
-            clearInterval(move);
-            heart.remove();
-        }
-
-    }, 20);
+return;
 
 }
 
-setInterval(createHeart, 800);
+const days = Math.floor(distance / (1000*60*60*24));
 
-// Sparkles
-function sparkle() {
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 
-    const s = document.createElement("div");
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
 
-    s.innerHTML = "✨";
+const seconds = Math.floor((distance%(1000*60))/1000);
 
-    s.style.position = "fixed";
-    s.style.left = Math.random() * window.innerWidth + "px";
-    s.style.top = Math.random() * window.innerHeight + "px";
-    s.style.pointerEvents = "none";
-    s.style.fontSize = (10 + Math.random() * 15) + "px";
+timer.innerHTML =
 
-    document.body.appendChild(s);
-
-    s.animate(
-        [
-            { opacity: 0 },
-            { opacity: 1 },
-            { opacity: 0 }
-        ],
-        {
-            duration: 1500
-        }
-    );
-
-    setTimeout(() => {
-        s.remove();
-    }, 1500);
+`${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
 
 }
 
-setInterval(sparkle, 400);
+setInterval(updateCountdown,1000);
+
+updateCountdown();
