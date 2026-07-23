@@ -219,3 +219,43 @@ setTimeout(type,35);
 setTimeout(type,600);
 
 }
+const celebrateBtn = document.getElementById("celebrate");
+
+if (celebrateBtn) {
+
+celebrateBtn.addEventListener("click", () => {
+
+const duration = 5000;
+const animationEnd = Date.now() + duration;
+
+const defaults = {
+spread: 360,
+ticks: 80,
+gravity: 0.7,
+decay: 0.94,
+startVelocity: 30
+};
+
+const interval = setInterval(() => {
+
+const timeLeft = animationEnd - Date.now();
+
+if (timeLeft <= 0) {
+clearInterval(interval);
+return;
+}
+
+confetti({
+...defaults,
+particleCount: 6,
+origin: {
+x: Math.random(),
+y: Math.random() * 0.5
+}
+});
+
+}, 120);
+
+});
+
+}
