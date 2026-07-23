@@ -127,4 +127,54 @@ font-family:'Great Vibes',cursive;
 
 color:#ff77aa;
 
-margin:15px
+margin:15px 0;
+
+}
+
+.glass h2{
+
+letter-spacing:5px;
+
+font-size:22px;
+
+}
+
+.glass p{
+
+line-height:1.9;
+
+margin:25px 0;
+
+font-size:17px;
+
+}
+
+/* Button */
+
+button{
+
+padding:16px 40px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:18px;
+
+cursor:pointer;
+
+background:linear-gradient(135deg,#ff4d94,#ff8db5);
+
+color:white;
+
+transition:.35s;
+
+}
+
+button:hover{
+
+transform:translateY(-4px) scale(1.05);
+
+box-shadow:0 15px 35px rgba(255,77,148,.45);
+
+}
