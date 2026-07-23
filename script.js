@@ -23,15 +23,15 @@ window.addEventListener("load", () => {
 
 const enterBtn = document.getElementById("enter");
 
-enterBtn.addEventListener("click", () => {
+if (enterBtn) {
+    enterBtn.addEventListener("click", () => {
 
-    document.querySelector(".story").scrollIntoView({
-
-        behavior:"smooth"
+        document.querySelector(".story").scrollIntoView({
+            behavior: "smooth"
+        });
 
     });
-
-});
+}
 
 // Anniversary Countdown
 
