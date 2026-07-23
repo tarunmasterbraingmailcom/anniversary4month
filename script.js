@@ -377,26 +377,25 @@ function animateFireworks(){
 animateFireworks();
 // ===== CELEBRATE BUTTON =====
 
+const celebrateBtn = document.getElementById("celebrate");
+
 if (celebrateBtn) {
 
     celebrateBtn.addEventListener("click", () => {
 
-        let count = 0;
+        let launched = 0;
 
-        const launcher = setInterval(() => {
+        const show = setInterval(() => {
 
-            const x = Math.random() * canvas.width * 0.8 + canvas.width * 0.1;
-            const y = Math.random() * canvas.height * 0.5 + canvas.height * 0.1;
+            launchRocket();
 
-            createExplosion(x, y);
+            launched++;
 
-            count++;
-
-            if (count >= 12) {
-                clearInterval(launcher);
+            if (launched >= 15) {
+                clearInterval(show);
             }
 
-        }, 350);
+        }, 250);
 
     });
 
