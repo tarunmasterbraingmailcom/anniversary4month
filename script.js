@@ -161,3 +161,11 @@ window.open(img.src,"_blank");
 });
 
 });
+const envelope = document.getElementById("envelope");
+const openLetter = document.getElementById("openLetter");
+
+if(envelope && openLetter){
+    openLetter.addEventListener("click", () => {
+        envelope.classList.toggle("open");
+    });
+}
