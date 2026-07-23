@@ -68,3 +68,96 @@ timer.innerHTML =
 setInterval(updateCountdown,1000);
 
 updateCountdown();
+/* ===========================
+   PROJECT ANU - SCRIPT PART 2
+=========================== */
+
+// Floating Hearts
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*25)+"px";
+
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},10000);
+
+}
+
+setInterval(createHeart,800);
+
+// Music
+
+const music=document.querySelector("audio");
+
+if(music){
+
+enterBtn.addEventListener("click",()=>{
+
+music.play().catch(()=>{});
+
+});
+
+}
+
+// Celebrate Button
+
+const celebrate=document.getElementById("celebrate");
+
+celebrate.addEventListener("click",()=>{
+
+alert("❤️ Happy Anniversary! ❤️\n\nWishing you endless happiness together.");
+
+});
+
+// Fade Animation
+
+const sections=document.querySelectorAll("section");
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("fade");
+
+}
+
+});
+
+});
+
+sections.forEach(section=>{
+
+observer.observe(section);
+
+});
+
+// Gallery Click
+
+const images=document.querySelectorAll(".photos img");
+
+images.forEach(img=>{
+
+img.addEventListener("click",()=>{
+
+window.open(img.src,"_blank");
+
+});
+
+});
