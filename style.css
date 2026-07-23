@@ -605,3 +605,48 @@ opacity:0;
         text-shadow:0 0 10px #ff4d94;
     }
 }
+.heartBeat{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin:25px 0;
+}
+
+.heartIcon{
+    font-size:80px;
+    animation:heartbeat 1.3s infinite;
+    filter:drop-shadow(0 0 15px #ff4d94);
+}
+
+.heartNames{
+    margin-top:10px;
+    font-size:28px;
+    font-weight:bold;
+    color:white;
+    letter-spacing:3px;
+    animation:glowName 2s infinite;
+}
+
+@keyframes heartbeat{
+    0%{transform:scale(1);}
+    20%{transform:scale(1.25);}
+    40%{transform:scale(1);}
+    60%{transform:scale(1.35);}
+    80%{transform:scale(1);}
+    100%{transform:scale(1);}
+}
+
+@keyframes glowName{
+    0%{
+        text-shadow:0 0 8px #ff4d94;
+    }
+    50%{
+        text-shadow:
+            0 0 20px #ff4d94,
+            0 0 40px white,
+            0 0 60px pink;
+    }
+    100%{
+        text-shadow:0 0 8px #ff4d94;
+    }
+}
