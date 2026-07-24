@@ -377,8 +377,6 @@ function animateFireworks(){
 animateFireworks();
 // ===== CELEBRATE BUTTON =====
 
-const celebrateBtn = document.getElementById("celebrate");
-
 if (celebrateBtn) {
 
     celebrateBtn.addEventListener("click", () => {
